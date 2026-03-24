@@ -10,5 +10,8 @@
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "env": {
+    "EXPO_UNSAFE_IGNORE_WEB_DEPENDENCY_CHECKS": "1"
+  }
 }
