@@ -13,11 +13,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "backend/app/main.py" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "env": {
-    "EXPO_UNSAFE_IGNORE_WEB_DEPENDENCY_CHECKS": "1",
-    "PYTHONPATH": "backend"
-  }
+    { "source": "/api/(.*)", "destination": "backend/app/main.py" }
+  ]
 }

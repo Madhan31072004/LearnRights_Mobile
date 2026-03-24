@@ -3,6 +3,6 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "vercel-build": "cd frontend && npm install --legacy-peer-deps && npm run build:web && cd .. && mkdir -p public && cp -rf frontend/dist/* public/"
+    "vercel-build": "cd frontend && npm install --legacy-peer-deps && npm run build:web && cp dist/index.html dist/404.html && cd .. && mkdir -p public && cp -rf frontend/dist/* public/"
   }
 }
