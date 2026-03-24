@@ -1,0 +1,29 @@
+# Environments
+node_modules/
+venv/
+backend_env/
+.venv/
+.agent/
+.gemini/
+final_venv/
+
+# Logs & Debug
+ai_errors.txt
+test_output.json
+*.log
+test*.py
+seed_test_comp.py
+debug_backend.bat
+run_backend.bat
+run_frontend.bat
+
+# Git Nested (to avoid submodules)
+*/.git/
+
+# Sensitive
+.env
+local_config.py
+
+# OS
+.DS_Store
+Thumbs.db
