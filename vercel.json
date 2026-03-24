@@ -5,7 +5,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "frontend/dist" }
+      "config": { "distDir": "public" }
     },
     {
       "src": "backend/app/main.py",
@@ -14,10 +14,6 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "backend/app/main.py" },
-    { "source": "/_expo/(.*)", "destination": "/_expo/$1" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/static/(.*)", "destination": "/static/$1" },
-    { "source": "/favicon.ico", "destination": "/favicon.ico" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
