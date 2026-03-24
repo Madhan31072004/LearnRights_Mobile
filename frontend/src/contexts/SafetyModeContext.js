@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { Alert, AppState, Platform, Linking } from 'react-native';
-import * as Battery from 'expo-battery';
 import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
 import * as SMS from 'expo-sms';
@@ -40,6 +39,7 @@ export const SafetyModeProvider = ({ children }) => {
     useEffect(() => {
         (async () => {
             if (Platform.OS !== 'web') {
+                const Battery = require('expo-battery');
                 const level = await Battery.getBatteryLevelAsync();
                 setBatteryLevel(level);
             }
