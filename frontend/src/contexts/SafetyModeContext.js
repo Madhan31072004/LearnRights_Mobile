@@ -39,8 +39,10 @@ export const SafetyModeProvider = ({ children }) => {
     // Initial battery and location setup
     useEffect(() => {
         (async () => {
-            const level = await Battery.getBatteryLevelAsync();
-            setBatteryLevel(level);
+            if (Platform.OS !== 'web') {
+                const level = await Battery.getBatteryLevelAsync();
+                setBatteryLevel(level);
+            }
 
             const storedShake = await AsyncStorage.getItem('shake_to_trigger');
             if (storedShake === 'true') setShakeEnabled(true);
@@ -62,11 +64,14 @@ export const SafetyModeProvider = ({ children }) => {
             }
         })();
 
-        const subscription = Battery.addBatteryLevelListener(({ batteryLevel }) => {
-            setBatteryLevel(batteryLevel);
-        });
+        let subscription;
+        if (Platform.OS !== 'web') {
+            subscription = Battery.addBatteryLevelListener(({ batteryLevel }) => {
+                setBatteryLevel(batteryLevel);
+            });
+        }
 
-        return () => subscription.remove();
+        return () => subscription && subscription.remove();
     }, []);
     useEffect(() => {
         const loadRecordings = async () => {
